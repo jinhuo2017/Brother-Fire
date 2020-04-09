@@ -1,0 +1,31 @@
+
+
+
+package Array;
+
+public class FindMinimumInRotatedSortedArray_153 {
+    public int findMin(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return Integer.MIN_VALUE;
+        }
+
+        int start = 0, end = nums.length - 1;
+        while (start + 1 < end) {
+            int mid = start + (end - start) / 2;
+            if (nums[mid] < nums[end]) {
+                end = mid;
+            } else {
+                start = mid;
+            }
+        }
+        return Math.min(nums[start], nums[end]);
+    }
+
+    public static void main(String[] args) {
+        FindMinimumInRotatedSortedArray_153 find = new FindMinimumInRotatedSortedArray_153();
+        // int[] nums = {3,4,5,1,2};
+        int[] nums = {4,5,6,7,0,1,2};
+        int ans = find.findMin(nums);
+        System.out.println(ans);
+    }
+}
