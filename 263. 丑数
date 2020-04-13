@@ -1,0 +1,41 @@
+
+
+
+package Math;
+
+import java.util.Scanner;
+
+public class UglyNumber_263 {
+    public boolean isUgly(int num) {
+        if (num == 0) {
+            return false;
+        }
+        while (num != 1) {
+            if (num % 5 == 0) {
+                num /= 5;
+                continue;
+            }
+            if (num % 3 == 0) {
+                num /= 3;
+                continue;
+            }
+            if (num % 2 == 0) {
+                num /= 2;
+                continue;
+            }
+            return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        UglyNumber_263 uglyNumber = new UglyNumber_263();
+        Scanner input = new Scanner(System.in);
+        int num = input.nextInt();
+        boolean ans = uglyNumber.isUgly(num);
+        System.out.println(ans);
+    }
+}
+
+
+
